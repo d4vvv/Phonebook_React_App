@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors')
+const { request } = require('express')
 const app = express()
 
 app.use(cors())
@@ -30,6 +31,9 @@ let persons = [
     }
 ]
 
+app.get('/', (request, response) => {
+    response.send('<h1> HEMLO <h1>')
+})
 
 app.get('/api/persons', (request, response) => {
     response.json(persons)
